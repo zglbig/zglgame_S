@@ -1,5 +1,7 @@
 package org.zgl.http;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @创建时间： 2018/6/11
  * @文件描述：自定义拦截器
  */
+@Service
 public class HttpHandlerInterceptor  implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {

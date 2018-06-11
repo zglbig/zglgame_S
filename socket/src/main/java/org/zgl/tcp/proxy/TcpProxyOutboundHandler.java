@@ -15,7 +15,7 @@ import java.lang.reflect.Proxy;
  */
 public class TcpProxyOutboundHandler {
     @SuppressWarnings("unchecked")
-    public static <T> T getRemoteProxyObj(Class serviceInterFace, ISession session, short dataDest){
+    public static <T> T getRemoteProxyObj(final Class serviceInterFace, final ISession session, final short dataDest){
         return (T) Proxy.newProxyInstance(serviceInterFace.getClassLoader(), new Class<?>[]{serviceInterFace}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
