@@ -1,9 +1,11 @@
 package org.zgl.utils.builder_rpc_interface;
 
-import org.zgl.tcp.proxy.desc.ClassDesc;
-import org.zgl.tcp.proxy.desc.MethodDesc;
-import org.zgl.tcp.proxy.desc.ProxyService;
-import org.zgl.tcp.utils.StringUtils;
+
+import org.zgl.http.desc.ClassDesc;
+import org.zgl.http.desc.MethodDesc;
+import org.zgl.http.desc.ProxyService;
+import org.zgl.http.rule.*;
+import org.zgl.utils.StringUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

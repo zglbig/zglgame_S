@@ -1,6 +1,6 @@
 package org.zgl.utils.builder_rpc_interface;
 
-import org.zgl.tcp.utils.StringUtils;
+import org.zgl.utils.StringUtils;
 
 public class CheckType {
     public static Class<?> stringToClass(String str){
@@ -153,5 +153,12 @@ public class CheckType {
                 }
         }
         return type;
+    }
+    public static boolean isPrimitive(Class<?> clazz){
+        if(clazz.equals(Integer.class) || clazz.equals(String.class) || clazz.equals(Long.class) || clazz.equals(Float.class) ||
+                clazz.equals(Double.class) || clazz.equals(Short.class) || clazz.equals(Character.class) || clazz.equals(Short.class) ||
+                clazz.equals(Boolean.class))
+            return true;
+        return false;
     }
 }

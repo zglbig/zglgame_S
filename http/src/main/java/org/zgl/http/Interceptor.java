@@ -17,6 +17,6 @@ public class Interceptor implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         System.err.println("asdasd");
-        registry.addInterceptor(handler).addPathPatterns("/game");
+        registry.addInterceptor(handler).addPathPatterns("/");
     }
 }

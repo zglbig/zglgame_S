@@ -1,6 +1,6 @@
 package org.zgl.http.message;
 
-import org.zgl.tcp.utils.ProtostuffUtils;
+import org.zgl.utils.ProtostuffUtils;
 
 /**
  * @作者： big
@@ -11,7 +11,6 @@ public class IoMessageSplice {
     public static IoMessage getIoMessage(String interfaceName, String methodName, Object[] args, short dataDest, boolean isPrimitive){
         switch (dataDest){
             case 1:
-
                 if(isPrimitive)
                     return primitive(interfaceName,methodName,args);
                 else
@@ -34,7 +33,7 @@ public class IoMessageSplice {
         ioMessageBaseType.setMethodName(methodName);
         StringBuilder sb = new StringBuilder();
         for(int i = 0;i<args.length;i++){
-            sb.append(args.toString());
+            sb.append(args[i].toString());
             if(i != args.length - 1){
                 sb.append("$");
             }

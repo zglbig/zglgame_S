@@ -35,27 +35,22 @@ public class TcpProxyInboundHandler {
     }
     private TcpProxyInboundHandler(){
         proxyObj = new HashMap<>();
+        scan("org.zgl");
     }
-
     /**
      * 扫描所有代理接口
      * @param scanPath
      */
-    public void scanAnnotation(String scanPath){
+    private void scan(String scanPath){
         List<Class> classList = GetFileAllInit.getClasssFromPackage(scanPath);
-        if (classList.size()<=0)
-            return;
         for (Class c:classList) {
-            Annotation proco = c.getAnnotation(ProxyService.class);
-            if(proco instanceof ProxyService){
-                ProxyService proco1 = (ProxyService) proco;
+            Annotation proxy = c.getAnnotation(ProxyService.class);
+            if(proxy instanceof ProxyService){
                 Class i = c.getInterfaces()[0];
-                Class ic = i.getInterfaces()[0];
                 proxyObj.put(i.getName(),c);
             }
         }
     }
-
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Class<?> c = Class.forName(TestImpl.class.getName());
         TestImpl o = (TestImpl) c.getDeclaredConstructor().newInstance();
