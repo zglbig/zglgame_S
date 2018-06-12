@@ -11,7 +11,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.IdleStateHandler;
-import org.zgl.IServerBootstrapEnter;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  * @创建时间： 2018/6/5
  * @文件描述：
  */
-public class TcpServerBootstrapEnter implements IServerBootstrapEnter {
+public class TcpServerBootstrapEnter  {
     private final EventLoopGroup boss;
     private final EventLoopGroup work;
     private final int port = 0;
