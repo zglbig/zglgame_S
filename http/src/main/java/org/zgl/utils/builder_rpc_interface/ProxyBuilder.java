@@ -6,6 +6,7 @@ import org.zgl.http.desc.MethodDesc;
 import org.zgl.http.desc.ProxyService;
 import org.zgl.http.rule.*;
 import org.zgl.utils.StringUtils;
+import org.zgl.utils.WriteFile;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -45,6 +46,7 @@ public class ProxyBuilder {
                 }
                 if(csClass != null && !csClass.equals("")){
                     //TODO... 写到目录下
+                    WriteFile.writeText(i.getSimpleName()+".cs",csClass,"E://GameGroup//zglgame_S//cs//interfacerpc//");
                     System.out.println(csClass);
                 }
             }
@@ -106,7 +108,7 @@ public class ProxyBuilder {
         s = StringUtils.substringAfterLast(s,".");
         if(csModels.getImplementsInterfaceName() != null || !csModels.getImplementsInterfaceName().equals(""))
             s += " : "+csModels.getImplementsInterfaceName();
-        sb.append("\tplublic interface "+ s + " { \n");
+        sb.append("\tpublic interface "+ s + " { \n");
         for(CsMethodModel cmd : csModels.getMethodModels()){
             String sss = methodDesc(cmd.getMethodDesc());
             if(sss != null){
@@ -157,7 +159,7 @@ public class ProxyBuilder {
         s = StringUtils.substringAfterLast(s,".");
         if(csModels.getImplementsInterfaceName() != null || !csModels.getImplementsInterfaceName().equals(""))
             s += " : "+csModels.getImplementsInterfaceName();
-        sb.append("\tplublic interface "+ s + " { \n");
+        sb.append("\tpublic interface "+ s + " { \n");
         for(CsMethodModel cmd : csModels.getMethodModels()){
             String sss = methodDesc(cmd.getMethodDesc());
             if(sss != null){
