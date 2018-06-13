@@ -1,4 +1,4 @@
-package org.zgl.gamelogic;
+package org.zgl.platform;
 
 import org.zgl.http.desc.ClassDesc;
 import org.zgl.http.desc.MethodDesc;
